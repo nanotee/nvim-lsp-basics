@@ -1,0 +1,129 @@
+*lsp-basics.txt*
+
+COMMANDS				*lsp-basics-commands*
+
+:[range]LspCodeAction			*:LspCodeAction*
+		Prompts the user for a code action to execute (if one is
+		available at the current cursor position). If [range] is
+		given, prompts the user for a range code action.
+
+		See also: ~
+		    |vim.lsp.buf.code_action()|
+		    |vim.lsp.buf.range_code_action()|
+
+:LspRename {new_name}			*:LspRename*
+		Renames all references to the symbol under the cursor. If no
+		{new_name} is given, prompts the user for one.
+
+		See also: ~
+		    |vim.lsp.buf.rename()|
+
+:LspHover				*:LspHover*
+		Displays hover information about the symbol under the cursor.
+
+		See also: ~
+		    |vim.lsp.buf.hover()|
+
+:LspSignatureHelp			*:LspSignatureHelp*
+		Displays signature help information about the symbol under the
+		cursor.
+
+		See also: ~
+		    |vim.lsp.buf.signature_help()|
+
+:LspDeclaration				*:LspDeclaration*
+		Jumps to the declaration of the symbol under the cursor.
+
+		See also: ~
+		    |vim.lsp.buf.declaration()|
+
+:LspDefinition				*:LspDefinition*
+		Jumps to the definition of the symbol under the cursor.
+
+		See also: ~
+		    |vim.lsp.buf.definition()|
+
+:LspTypeDefinition			*:LspTypeDefinition*
+		Jumps to the definition of the type of the symbol under the
+		cursor.
+
+		See also: ~
+		    |vim.lsp.buf.type_definition()|
+
+:LspImplementation			*:LspImplementation*
+		Gets all the implementations for the symbol under the cursor.
+
+		See also: ~
+		    |vim.lsp.buf.implementation()|
+
+:LspReferences				*:LspReference*
+		Gets all the references to the symbol under the cursor.
+
+		See also: ~
+		    |vim.lsp.buf.references()|
+
+:LspDocumentSymbol			*:LspDocumentSymbol*
+		Gets all the symbols for the current buffer.
+
+		See also: ~
+		    |vim.lsp.buf.document_symbol()|
+
+:LspWorkspaceSymbol {query}		*:LspWorkspaceSymbol*
+		Gets all the symbols in the current workspace.
+
+		See also: ~
+		    |vim.lsp.buf.workspace_symbol()|
+
+:LspFormat[!]				*:LspFormat*
+		Formats the current buffer. If [!] is used, the formatting is
+		done synchronously
+
+		See also: ~
+		    |vim.lsp.buf.formatting()|
+		    |vim.lsp.buf.formatting_sync()|
+		    |:LspFormatRange|
+
+:[range]LspFormatRange			*:LspFormatRange*
+		Formats a visually selected range in the current buffer.
+
+		See also: ~
+		    |vim.lsp.buf.range_formatting()|
+		    |:LspFormat|
+
+:LspIncomingCalls			*:LspIncomingCalls*
+		Gets all the call sites of the symbol under the cursor.
+
+		See also: ~
+		    |vim.lsp.buf.incoming_calls()|
+
+:LspOutgoingCalls			*:LspOutgoingCall*
+		Gets all the items that are called by the symbol under the
+		cursor.
+
+		See also: ~
+		    |vim.lsp.buf.outgoing_calls()|
+
+:LspListWorkspaceFolders		*:LspListWorkspaceFolders*
+		Displays all the current workspace folders.
+
+		See also: ~
+		    |vim.lsp.buf.list_workspace_folders()|
+
+:LspAddWorkspaceFolder {dir}		*:LspAddWorkspaceFolder*
+		Adds a workspace folder to the list of workspace folders. If
+		{dir} is ommitted, prompts the user for one.
+
+		See also: ~
+		    |vim.lsp.buf.add_workspace_folder()|
+
+:LspRemoveWorkspaceFolder {dir}		*:LspRemoveWorkspaceFolder*
+		Removes a workspace folder from the list of workspace folders.
+		If {dir} is ommitted, prompts the user for one.
+
+		See also: ~
+		    |vim.lsp.buf.remove_workspace_folder()|
+
+:LspLog					*:LspLog*
+		Opens a |preview-window| with the latest LSP logs.
+
+vim:tw=78:ts=8:noet:ft=help:norl:
