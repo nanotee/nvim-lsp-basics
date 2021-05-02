@@ -8,7 +8,7 @@ local function make_lsp_commands(client)
         cmd 'command! -buffer -range LspCodeAction lua require("lsp_basics.wrappers").code_action(<range> ~= 0)'
     end
     if cap.rename then
-        cmd 'command! -buffer -nargs=? -complete=custom,lsp_basics#completion#rename LspRename lua vim.lsp.buf.rename(<f-args>)'
+        cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'lsp_basics.completion'.rename LspRename lua vim.lsp.buf.rename(<f-args>)"
     end
     if cap.hover then
         cmd 'command! -buffer LspHover lua vim.lsp.buf.hover()'
@@ -35,7 +35,7 @@ local function make_lsp_commands(client)
         cmd 'command! -buffer LspDocumentSymbol lua vim.lsp.buf.document_symbol()'
     end
     if cap.workspace_symbol then
-        cmd 'command! -buffer -nargs=? -complete=customlist,lsp_basics#completion#workspace_symbol LspWorkspaceSymbol lua vim.lsp.buf.workspace_symbol(<f-args>)'
+        cmd "command! -buffer -nargs=? -complete=customlist,v:lua.require'lsp_basics.completion'.workspace_symbol LspWorkspaceSymbol lua vim.lsp.buf.workspace_symbol(<f-args>)"
     end
     if cap.document_formatting then
         cmd 'command! -buffer -bang LspFormat lua require("lsp_basics.wrappers").format_command("<bang>" == "!")'
