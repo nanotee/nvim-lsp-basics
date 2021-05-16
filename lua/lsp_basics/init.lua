@@ -5,7 +5,7 @@ local cmd = vim.api.nvim_command
 local function make_lsp_commands(client)
     local cap = client.resolved_capabilities
     if cap.code_action then
-        cmd 'command! -buffer -range LspCodeAction lua require("lsp_basics.wrappers").code_action(<range> ~= 0)'
+        cmd 'command! -buffer -range LspCodeAction lua require("lsp_basics.wrappers").code_action(<range> ~= 0, <line1>, <line2>)'
     end
     if cap.rename then
         cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'lsp_basics.completion'.rename LspRename lua vim.lsp.buf.rename(<f-args>)"
@@ -37,11 +37,8 @@ local function make_lsp_commands(client)
     if cap.workspace_symbol then
         cmd "command! -buffer -nargs=? -complete=customlist,v:lua.require'lsp_basics.completion'.workspace_symbol LspWorkspaceSymbol lua vim.lsp.buf.workspace_symbol(<f-args>)"
     end
-    if cap.document_formatting then
-        cmd 'command! -buffer -bang LspFormat lua require("lsp_basics.wrappers").format_command("<bang>" == "!")'
-    end
-    if cap.document_range_formatting then
-        cmd 'command! -buffer -range LspFormatRange lua vim.lsp.buf.range_formatting()'
+    if cap.document_formatting or cap.document_range_formatting then
+        cmd 'command! -buffer -range -bang LspFormat lua require("lsp_basics.wrappers").format_command(<range> ~= 0, <line1>, <line2>, "<bang>" == "!")'
     end
     if cap.call_hierarchy then
         cmd 'command! -buffer LspIncomingCalls lua vim.lsp.buf.incoming_calls()'

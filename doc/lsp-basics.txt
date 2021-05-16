@@ -5,7 +5,8 @@ COMMANDS				*lsp-basics-commands*
 :[range]LspCodeAction			*:LspCodeAction*
 		Prompts the user for a code action to execute (if one is
 		available at the current cursor position). If [range] is
-		given, prompts the user for a range code action.
+		given, prompts the user for a range code action (only works
+		line-wise).
 
 		See also: ~
 		    |vim.lsp.buf.code_action()|
@@ -76,15 +77,15 @@ COMMANDS				*lsp-basics-commands*
 
 :LspFormat[!]				*:LspFormat*
 		Formats the current buffer. If [!] is used, the formatting is
-		done synchronously
+		done synchronously.
 
 		See also: ~
 		    |vim.lsp.buf.formatting()|
 		    |vim.lsp.buf.formatting_sync()|
 		    |:LspFormatRange|
 
-:[range]LspFormatRange			*:LspFormatRange*
-		Formats a visually selected range in the current buffer.
+:[range]LspFormat
+		Formats a range in the current buffer. Only works line-wise.
 
 		See also: ~
 		    |vim.lsp.buf.range_formatting()|
