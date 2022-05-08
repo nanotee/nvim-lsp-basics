@@ -80,6 +80,7 @@ COMMANDS				*lsp-basics-commands*
 		done synchronously.
 
 		See also: ~
+		    |vim.lsp.buf.format()|
 		    |vim.lsp.buf.formatting()|
 		    |vim.lsp.buf.formatting_sync()|
 		    |:LspFormatRange|
